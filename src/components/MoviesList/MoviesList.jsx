@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 import noImage from '../../images/no-image.jpg';
+import { FilmList, FilmItem } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
   return (
-    <ul>
+    <FilmList>
       {movies.map(({ id, title, poster_path }) => (
-        <li key={id}>
+        <FilmItem key={id}>
           <Link to={`/movies/${id}`} state={{ from: location }}>
             <img
               src={
@@ -21,10 +23,14 @@ const MoviesList = ({ movies }) => {
             />
             <p>{title}</p>
           </Link>
-        </li>
+        </FilmItem>
       ))}
-    </ul>
+    </FilmList>
   );
+};
+
+MoviesList.propTypes = {
+  movies: PropTypes.array.isRequired,
 };
 
 export default MoviesList;

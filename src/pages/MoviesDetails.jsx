@@ -21,7 +21,7 @@ const MovieDetails = () => {
     const responce = getMovieDetails(id);
     responce
       .then()
-      .then(res => setMovieDetails(res))
+      .then(resp => setMovieDetails(resp))
       .catch(error => console.log(error));
   }, [id]);
 

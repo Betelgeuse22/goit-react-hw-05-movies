@@ -1,19 +1,20 @@
+import { GlobalStyle } from '../../GlobaleStyle';
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import {Outlet } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
+import { Container, StyledLink, NavWraper } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
-    <div>
-      <nav>
-        <Link to="/">
-          Home
-        </Link>
-        <Link to="/movies">Movies</Link>
-      </nav>
-      <Suspense fallback={<Loader/>}>
+    <Container>
+      <NavWraper>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/movies">Movies</StyledLink>
+      </NavWraper>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+      <GlobalStyle />
+    </Container>
   );
 };

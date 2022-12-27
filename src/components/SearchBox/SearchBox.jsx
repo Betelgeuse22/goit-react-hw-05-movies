@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { getSearchMovies } from '../../Api';
 import { Loader } from '../Loader/Loader';
 import { ToastContainer, toast } from 'react-toastify';
+import { Input, SearchBtn, SearchForm } from './SearchBox.styled';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -41,10 +42,10 @@ const SearchBox = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="searchName" placeholder="Search movie" />
-        <button type="submit">Search</button>
-      </form>
+      <SearchForm  onSubmit={handleSubmit}>
+        <Input type="text" name="searchName" placeholder="Search movie" />
+        <SearchBtn type="submit">Search</SearchBtn>
+      </SearchForm>
 
       {movies.length > 0 && (
         <Suspense fallback={<Loader />}>
