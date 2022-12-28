@@ -12,6 +12,7 @@ const MoviesList = lazy(() => import('components/MoviesList/MoviesList'));
 const SearchBox = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const toastOptions = {
     position: 'top-center',
     autoClose: 5000,
@@ -42,7 +43,7 @@ const SearchBox = () => {
 
   return (
     <div>
-      <SearchForm  onSubmit={handleSubmit}>
+      <SearchForm onSubmit={handleSubmit}>
         <Input type="text" name="searchName" placeholder="Search movie" />
         <SearchBtn type="submit">Search</SearchBtn>
       </SearchForm>

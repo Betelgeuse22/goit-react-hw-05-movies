@@ -5,10 +5,11 @@ import {
   NavLink,
   Outlet,
 } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import noImage from '../images/no-image.jpg';
 
 import { getMovieDetails } from '../Api';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -73,7 +74,9 @@ const MovieDetails = () => {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<Loader/>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

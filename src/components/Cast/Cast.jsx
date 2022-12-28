@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { getCast } from '../../Api';
 import noImage from '../../images/no-image.jpg';
 
-export const Cast = () => {
+const Cast = () => {
   const { id } = useParams();
   const [cast, setCast] = useState();
 
@@ -33,3 +33,5 @@ export const Cast = () => {
     </ul>
   );
 };
+
+export default Cast;
